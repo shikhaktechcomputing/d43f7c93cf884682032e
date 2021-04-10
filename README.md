@@ -22,3 +22,18 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+SetUp Project
+
+1- git clone https://github.com/shikhaktechcomputing/d43f7c93cf884682032e.git
+
+2- bundle install
+
+3- rake db:seed
+
+Check Api doc:
+
+1- start server with command 'rails -s'
+
+2- run on browser url: localhost:3000/apipie
