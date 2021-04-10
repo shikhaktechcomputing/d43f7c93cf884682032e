@@ -2,18 +2,18 @@ class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action  :verify_authenticity_token
 
-  # eval(IO.read('doc/api_doc/users/index.html'), binding)
+  eval(IO.read('doc/api_doc/users/index.html'), binding)
   def index
     users = User.all
     return render json: {status: 200, all_users: {users: users}, message: "all users list"}
   end
 
-  # eval(IO.read('doc/api_doc/users/show.html'), binding)
+  eval(IO.read('doc/api_doc/users/show.html'), binding)
   def show
     return render json: {status: 200, user_detail: {user: @user}, :message =>"User Details"}
   end
 
-  # eval(IO.read('doc/api_doc/users/create.html'), binding)
+  eval(IO.read('doc/api_doc/users/create.html'), binding)
   def create
     user = User.new(user_params)
     if user.save!
@@ -23,6 +23,7 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  eval(IO.read('doc/api_doc/users/update.html'), binding)
   def update
     if @user.update(user_params)
       render json: {status: 200, data: {user: @user}, message: "Successfully Updated"}
@@ -30,7 +31,8 @@ class Api::UsersController < ApplicationController
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end
   end
-
+  
+  eval(IO.read('doc/api_doc/users/destroy.html'), binding)
   def destroy
     if @user.present?
       @user.delete
